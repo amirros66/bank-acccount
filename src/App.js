@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Bank Account</h1>
+      <br></br>
+      <h2>Checking Account Balance:</h2>
+      {/* how do I get initial state (amount) for checking account from CheckingAccount/Slice - initialstate? */}
+      <h2>Savings Account Balance:</h2>
+      {/* how do I get initial state for savings account from SavingsAccount/Slice - initialstate? */}
+      <br></br>
+      <br></br>
     </div>
   );
 }
