@@ -50,12 +50,29 @@ const cards = createSlice({
   },
   // The names of these keys in initialState will be used in selector definitions
   reducers: {
-    toggle: (state) => {
-      state.blocked = !state.blocked; //array of an index.blocked
-    },
-  }, // These are the actions you can dispatch in UI components. They will always have state and
-  // action parameters. The value of the state parameter is supplied by Redux
+    toggle: (state, action) => {
+      const { id } = action.payload;
+      const cardToToggle = state.cards.find((card) => card.id === id);
+
+      if (cardToToggle) {
+        cardToToggle.blocked = !cardToToggle.blocked;
+      }
+      //To toggle the blocked status of a card in the initial state,
+      // the toggle reducer can take an additional parameter (id) representing the id of the card you
+      // want to toggle:
+      // The toggle reducer now takes an additional parameter action.payload containing the
+      // id of the card to toggle.
+      // It uses find to locate the specific card with the given id in the state.cards array.
+      // If the card is found, it toggles the blocked status of that card.
+      // Now, when the toggle action is dispatched with the id of a card, it will toggle
+      // the blocked property of that specific card in the Redux state.
+    }, // These are the actions you can dispatch in UI components. They will always have state and
+    // action parameters. The value of the state parameter is supplied by Redux
+  },
 });
 
+// These actions will be imported in UI components in src/components
+// They will be dispatched with useDispatch like this: useDispatch(increase())
+// Always follow this exact format: export const { actionsToExport } = countSlice.actions;
 export const { toggle } = cards.actions;
 export default cards.reducer;
