@@ -1,7 +1,8 @@
 import React from "react";
-import { selectCheckingAccount } from "../store/CheckingAccount/selectors";
-import { useSelector, useDispatch } from "react-redux";
+// import { selectCheckingAccount } from "../store/CheckingAccount/selectors";
+import { useDispatch } from "react-redux";
 import { addMoney, subtractMoney } from "../store/CheckingAccount/slice";
+import "./AddWithdraw.css";
 
 // Feature 1 - Adding and Withdrawing money *TRANSACTIONS*
 
@@ -12,12 +13,8 @@ import { addMoney, subtractMoney } from "../store/CheckingAccount/slice";
 // When money is subtracted or added to this checking account this should be updated and
 // displayed at the top of the app.
 
-//Transactions heading
-//Amount heading with input field
-//Add / withdraw button
-
 export default function AddWithdraw() {
-  const checkingAccountValue = useSelector(selectCheckingAccount);
+  // const checkingAccountValue = useSelector(selectCheckingAccount);
   const dispatch = useDispatch();
 
   const handleAddMoney = () => {
@@ -29,11 +26,12 @@ export default function AddWithdraw() {
   };
 
   return (
-    <>
-      <h1>Checking Account Balance: ${checkingAccountValue}</h1>
-      <h2>Transactions</h2>
-      <button onClick={handleAddMoney}>Add $10</button>
-      <button onClick={handleSubtractMoney}>Subtract $10</button>
-    </>
+    <div className="transactionsContainer">
+      <div className="transactionsBox">
+        <h2>Transactions</h2>
+        <button onClick={handleAddMoney}>Add $10</button>
+        <button onClick={handleSubtractMoney}>Subtract $10</button>
+      </div>
+    </div>
   );
 }

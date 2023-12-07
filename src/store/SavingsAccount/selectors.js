@@ -10,6 +10,6 @@
 //Feature 2 - transfer money from savings account to checking account and vice-versa
 
 const selectSavingsAccount = (reduxState) => {
-  //return reduxState.count.countValue;
+  return reduxState.savingsAccount.savingsAccountValue;
 };
 export { selectSavingsAccount };
