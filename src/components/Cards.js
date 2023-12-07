@@ -2,7 +2,7 @@ import React from "react";
 import { selectCards } from "../store/Cards/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../store/Cards/slice";
-
+import "./Cards.css";
 // Feature 2 - Block & Unblocking cards
 //display all cards
 //block or unblock each card via a toggle / button
@@ -20,9 +20,9 @@ export default function Cards() {
   };
 
   return (
-    <div>
+    <div className="cards-container">
       {cards.map((card) => (
-        <div key={card.id}>
+        <div className="card-box" key={card.id}>
           <p>{card.name}</p>
           <p>ID: {card.id}</p>
           <p>Number: {card.number}</p>

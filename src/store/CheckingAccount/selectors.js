@@ -9,6 +9,6 @@
 
 //Feature 1 - Select checking account
 const selectCheckingAccount = (reduxState) => {
-  //return reduxState.count.countValue;
+  return reduxState.checkingAccount.checkingAccountValue;
 };
 export { selectCheckingAccount };

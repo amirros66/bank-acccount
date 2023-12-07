@@ -8,13 +8,10 @@
 
 //Feature 3 - Select cards
 
-// const selectCards = (reduxState) => {
-//   return reduxState.cards.cards.map((card) => card.number);
-// };
-// export { selectCards };
-
 const selectCards = (reduxState) => {
   return reduxState.cards.cards.map((card) => ({ ...card }));
+  //This returns a mapped version of the cards array from the state, creating a new array
+  //of objects to ensure immutability.
 };
 export { selectCards };
 
