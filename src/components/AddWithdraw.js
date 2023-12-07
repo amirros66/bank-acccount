@@ -1,4 +1,5 @@
-// import { selectCheckingAccount } from "../store/CheckingAccount/selectors";
+import { useSelector } from "react-redux";
+//the  useSelector hook is used to extract the error field from the Redux store.
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { addMoney, subtractMoney } from "../store/CheckingAccount/slice";
@@ -6,18 +7,19 @@ import "./AddWithdraw.css";
 
 // Feature 1 - Adding and Withdrawing money *TRANSACTIONS*
 
-// - Add money to the checking account
-// - withdraw money from the checking account
-// - Note! the state has to be managed by Redux
-
-// When money is subtracted or added to this checking account this should be updated and
-// displayed at the top of the app.
+//if a transaction will leave the account lower than 0, this should not be allowed
 
 export default function AddWithdraw() {
   // const checkingAccountValue = useSelector(selectCheckingAccount);
   const dispatch = useDispatch();
   const [amount, setAmount] = useState(0); //this is relating to add amount input field so they
   //can enter whatever amount they want rather than hardcoded values (€10).
+
+  const error = useSelector((state) => state.checkingAccount.error);
+  //(state) => state.checkingAccount.error: This is an arrow function that takes the entire
+  // Redux state as its parameter (state). It then accesses the checkingAccount slice of the
+  // state and extracts the error field from it.
+
   const handleAddMoney = () => {
     dispatch(addMoney(amount)); //dispatching the action + the payload of amount of money
     setAmount(0); //resets back to no input
@@ -31,6 +33,9 @@ export default function AddWithdraw() {
   return (
     <div className="transactionsContainer">
       <div className="transactionsBox">
+        {error && (
+          <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>
+        )}
         <h3>Transactions</h3>
         <input
           type="number"

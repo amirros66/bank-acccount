@@ -20,24 +20,27 @@ export default function Cards() {
   };
 
   return (
-    <div className="cards-container">
-      {cards.map((card) => (
-        <div className="card-box" key={card.id}>
-          <p className="nameOnCard">{card.name}</p>
-          <p>ID: {card.id}</p>
-          <p>Number: {card.number}</p>
-          <p>Type: {card.type}</p>
-          <p>Issuer: {card.issuer}</p>
-          <button onClick={() => handleToggle(card.id)}>
-            {card.blocked ? "Blocked" : "Unblocked"}
-          </button>
-          <p>Limit: {card.limit}</p>
-          <p>Max: {card.max}</p>
-          <br></br>
-          <br></br>
-        </div>
-      ))}
-    </div>
+    <>
+      <h3>Other available cards</h3>
+      <div className="cards-container">
+        {cards.map((card) => (
+          <div className="card-box" key={card.id}>
+            <p className="nameOnCard">{card.name}</p>
+            <p>ID: {card.id}</p>
+            <p>Number: {card.number}</p>
+            <p>Type: {card.type}</p>
+            <p>Issuer: {card.issuer}</p>
+            <button onClick={() => handleToggle(card.id)}>
+              {card.blocked ? "Blocked" : "Unblocked"}
+            </button>
+            <p>Limit: {card.limit}</p>
+            <p>Max: {card.max}</p>
+            <br></br>
+            <br></br>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 

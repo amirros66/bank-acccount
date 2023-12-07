@@ -23,7 +23,16 @@ const checkingAccount = createSlice({
     },
     subtractMoney: (state, action) => {
       const amount = action.payload;
-      state.checkingAccountValue -= amount;
+      const newAmount = state.checkingAccountValue - amount;
+
+      if (newAmount < 0) {
+        // If the new amount is below 0, set an error
+        state.error = "Insufficient funds.";
+      } else {
+        // Otherwise, subtract the amount and reset the error
+        state.checkingAccountValue = newAmount;
+        state.error = null;
+      }
     },
     transferToSavings: (state, action) => {
       const amount = action.payload;
