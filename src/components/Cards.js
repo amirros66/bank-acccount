@@ -18,9 +18,21 @@ export default function BlockUnblockButtons() {
   //  imported block / unblock actions
 
   return (
-    <>
-      <p>Available Cards {cards}</p>
-      {/* <button onClick={() => {dispatch(toggle());}}>Block</button> */}
-    </>
+    <div>
+      {cards.map((card) => (
+        <div key={card.id}>
+          <p>{card.name}</p>
+          <p>ID: {card.id}</p>
+          <p>Number: {card.number}</p>
+          <p>Type: {card.type}</p>
+          <p>Issuer: {card.issuer}</p>
+          <p>Blocked: {card.blocked ? "Yes" : "No"}</p>
+          {/* Want to add a function to this blocked bit that toggles blocked and unblocked off */}
+          {/* <button onClick={() => {dispatch(toggle());}}>Block</button> */}
+          <p>Limit: {card.limit}</p>
+          <p>Max: {card.max}</p>
+        </div>
+      ))}
+    </div>
   );
 }

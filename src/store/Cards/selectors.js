@@ -8,8 +8,13 @@
 
 //Feature 3 - Select cards
 
+// const selectCards = (reduxState) => {
+//   return reduxState.cards.cards.map((card) => card.number);
+// };
+// export { selectCards };
+
 const selectCards = (reduxState) => {
-  return reduxState.cards.cards.map((card) => card.number);
+  return reduxState.cards.cards.map((card) => ({ ...card }));
 };
 export { selectCards };
 
