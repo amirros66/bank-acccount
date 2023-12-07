@@ -29,4 +29,4 @@ const checkingAccount = createSlice({
 
 export const { addMoney, subtractMoney } = checkingAccount.actions;
 
-export default checkingAccount;
+export default checkingAccount.reducer;

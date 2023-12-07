@@ -1,4 +1,6 @@
 import "./App.css";
+//import { useSelector, useDispatch } from "react-redux";
+import Cards from "./components/Cards";
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       {/* how do I get initial state for savings account from SavingsAccount/Slice - initialstate? */}
       <br></br>
       <br></br>
+      <Cards />
     </div>
   );
 }

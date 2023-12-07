@@ -29,4 +29,4 @@ export const {
   transferMoneyFromCheckingAccountToSavingsAccount,
 } = savingsAccount.actions;
 
-export default savingsAccount;
+export default savingsAccount.reducer;
