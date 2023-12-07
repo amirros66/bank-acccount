@@ -11,3 +11,7 @@
   margin: 10px;
   width: 200px; /* Set a width for each card box */
 }
+
+.nameOnCard {
+  font-weight: bold;
+}

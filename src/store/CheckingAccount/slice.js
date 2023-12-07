@@ -17,13 +17,14 @@ const checkingAccount = createSlice({
     checkingAccountValue: 1000,
   }, // The names of these keys in initialState will be used in selector definitions
   reducers: {
-    addMoney: (state) => {
-      state.checkingAccountValue = state.checkingAccountValue + 10;
+    addMoney: (state, action) => {
+      const amount = action.payload;
+      state.checkingAccountValue += amount; //this payload allows user to input any amount
     },
-    subtractMoney: (state) => {
-      state.checkingAccountValue = state.checkingAccountValue - 10;
-    }, // These are the actions you can dispatch in UI components. They will always have state and
-    // action parameters. The value of the state parameter is supplied by Redux
+    subtractMoney: (state, action) => {
+      const amount = action.payload;
+      state.checkingAccountValue -= amount;
+    },
     transferToSavings: (state, action) => {
       const amount = action.payload;
       state.checkingAccountValue -= amount;

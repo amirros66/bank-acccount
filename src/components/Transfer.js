@@ -15,9 +15,7 @@ export default function Transfer() {
     dispatch(transferToChecking(amount));
     dispatch(addMoney(amount)); //this was the issue it was subtractMoney which was incorrect
     console.log(transferToCheckingAccount);
-  }; //this logic is not working
-
-  //transferToCheckingAccount:  want to remove from savings and add to checking
+  };
 
   const transferFromCheckingAccount = () => {
     const amount = 10;
@@ -26,20 +24,18 @@ export default function Transfer() {
     console.log(transferFromCheckingAccount);
   };
 
-  //this logic is working
-
   return (
     <div>
       <div className="transferContainer">
         <div className="transferBox">
-          <h2>Transfer Money between savings account & checking account</h2>
+          <h3>Transfer Money between accounts</h3>
           <button onClick={transferToCheckingAccount}>
-            Add to checking account
+            To checking account
           </button>
-          {/* WHEN I CLICK THIS'Add to checking account' SAVINGS DECREASE BUT CHECKING
-       ALSO DECREASES INSTEAD OF INCREASING*/}
+          <br></br>
+          <br></br>
           <button onClick={transferFromCheckingAccount}>
-            Add to savings account
+            To savings account
           </button>
         </div>
       </div>

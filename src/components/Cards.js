@@ -23,7 +23,7 @@ export default function Cards() {
     <div className="cards-container">
       {cards.map((card) => (
         <div className="card-box" key={card.id}>
-          <p>{card.name}</p>
+          <p className="nameOnCard">{card.name}</p>
           <p>ID: {card.id}</p>
           <p>Number: {card.number}</p>
           <p>Type: {card.type}</p>

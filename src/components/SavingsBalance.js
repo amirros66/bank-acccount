@@ -4,5 +4,5 @@ import React from "react";
 
 export default function SavingsBalance() {
   const savingsAccountValue = useSelector(selectSavingsAccount);
-  return <h2>Savings Account Balance: ${savingsAccountValue}</h2>;
+  return <h2>Savings Account Balance: €{savingsAccountValue}</h2>;
 }
