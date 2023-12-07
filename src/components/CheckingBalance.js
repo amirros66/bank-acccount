@@ -6,5 +6,5 @@ import React from "react";
 
 export default function CheckingBalance() {
   const checkingAccountValue = useSelector(selectCheckingAccount);
-  return <h1>Checking Account Balance: ${checkingAccountValue}</h1>;
+  return <h2>Checking Account Balance: ${checkingAccountValue}</h2>;
 }

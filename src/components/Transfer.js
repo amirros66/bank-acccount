@@ -1,42 +1,48 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-// import {
-//   transferMoneyToCheckingAccount,
-//   transferMoneyFromCheckingAccountToSavingsAccount,
-// } from "./store/SavingsAccount/slice";
-
-//Feature 5 - Savings Account *TRANSFERS*
-//transfer money from savings account to checking account and vice-versa
-// **Constraint:** You can not transfer more money than it's available in any of the accounts.
-// None of them can go under 0.
-
-// When money is subtracted or added to this savings account via transfers this should be updated
-// and displayed at the top of the app.
-
-//Transfer / send money heading
-//Amount heading with input field
-//To savings account / to checkings account buttons.
+import {
+  transferToChecking,
+  transferFromChecking,
+} from "../store/SavingsAccount/slice";
+import { addMoney, transferToSavings } from "../store/CheckingAccount/slice";
+import "./Transfer.css";
 
 export default function Transfer() {
   const dispatch = useDispatch();
 
+  const transferToCheckingAccount = () => {
+    const amount = 10;
+    dispatch(transferToChecking(amount));
+    dispatch(addMoney(amount)); //this was the issue it was subtractMoney which was incorrect
+    console.log(transferToCheckingAccount);
+  }; //this logic is not working
+
+  //transferToCheckingAccount:  want to remove from savings and add to checking
+
+  const transferFromCheckingAccount = () => {
+    const amount = 10;
+    dispatch(transferFromChecking(amount));
+    dispatch(transferToSavings(amount));
+    console.log(transferFromCheckingAccount);
+  };
+
+  //this logic is working
+
   return (
     <div>
-      <h3>Transfer Money</h3>
-      {/* <button
-        onClick={() => {
-          dispatch(transferMoneyFromCheckingAccountToSavingsAccount());
-        }}
-      >
-        Transfer from checking account to savings account
-      </button>
-      <button
-        onClick={() => {
-          dispatch(transferMoneyToCheckingAccount());
-        }}
-      >
-        Transfer from savings to checking account
-      </button> */}
+      <div className="transferContainer">
+        <div className="transferBox">
+          <h2>Transfer Money between savings account & checking account</h2>
+          <button onClick={transferToCheckingAccount}>
+            Add to checking account
+          </button>
+          {/* WHEN I CLICK THIS'Add to checking account' SAVINGS DECREASE BUT CHECKING
+       ALSO DECREASES INSTEAD OF INCREASING*/}
+          <button onClick={transferFromCheckingAccount}>
+            Add to savings account
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

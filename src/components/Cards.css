@@ -1,7 +1,8 @@
 .cards-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align items to the right side */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-box {

@@ -12,21 +12,20 @@ const savingsAccount = createSlice({
   name: "savingsAccount",
   initialState: {
     savingsAccountValue: 8000,
-  }, // The names of these keys in initialState will be used in selector definitions
+  },
   reducers: {
-    transferMoneyToCheckingAccount: (state) => {
-      //state. ? how to write logic to increase whats subtracted in savingsAccount to checking account?
+    transferToChecking: (state, action) => {
+      const amount = action.payload;
+      state.savingsAccountValue -= amount;
     },
-    transferMoneyFromCheckingAccountToSavingsAccount: (state) => {
-      //state. ? how to write logic to increase whats subtracted in checkingAccount to savings account?
+    transferFromChecking: (state, action) => {
+      const amount = action.payload;
+      state.savingsAccountValue += amount;
     },
-  }, // These are the actions you can dispatch in UI components. They will always have state and
-  // action parameters. The value of the state parameter is supplied by Redux
+  },
 });
 
-export const {
-  transferMoneyToCheckingAccount,
-  transferMoneyFromCheckingAccountToSavingsAccount,
-} = savingsAccount.actions;
+export const { transferToChecking, transferFromChecking } =
+  savingsAccount.actions;
 
 export default savingsAccount.reducer;

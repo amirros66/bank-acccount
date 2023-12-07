@@ -24,9 +24,14 @@ const checkingAccount = createSlice({
       state.checkingAccountValue = state.checkingAccountValue - 10;
     }, // These are the actions you can dispatch in UI components. They will always have state and
     // action parameters. The value of the state parameter is supplied by Redux
+    transferToSavings: (state, action) => {
+      const amount = action.payload;
+      state.checkingAccountValue -= amount;
+    },
   },
 });
 
-export const { addMoney, subtractMoney } = checkingAccount.actions;
+export const { addMoney, subtractMoney, transferToSavings } =
+  checkingAccount.actions;
 
 export default checkingAccount.reducer;
